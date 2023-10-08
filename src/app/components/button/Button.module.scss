@@ -1,0 +1,29 @@
+.Button {
+  font-family: inherit;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 3px 10px;
+  line-height: 1;
+
+  &:hover {
+    background-color: transparentize(white, .9);
+  }
+
+  &:active {
+    background-color: transparentize(black, .9);
+  }
+
+  &.ButtonIcon {
+    border-radius: 50%;
+    padding: 0;
+    width: 35px;
+    height: 35px;
+
+    & > svg {
+      fill: var(--text) !important;
+    }
+  }
+}
