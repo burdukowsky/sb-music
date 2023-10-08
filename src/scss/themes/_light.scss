@@ -3,6 +3,6 @@
 $bg: #8E24AA;
 $text: white;
 
-html {
+:root {
   @include theme($bg, $text);
 }
