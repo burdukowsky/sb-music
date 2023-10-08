@@ -16,6 +16,8 @@
     left: 100%;
     transition: left 200ms;
     background-color: var(--bg);
+    overflow: auto;
+
     &.PlayerContainerDrawerOpen {
       left: 0;
     }
