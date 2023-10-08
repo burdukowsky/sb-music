@@ -7,12 +7,12 @@ import { player } from 'src/app/player.ts';
 export const PlayerControls: FC = () => {
   return (
     <Flex>
-      <Button onClick={() => player.prev()}>prev</Button>
-      <Button onClick={() => player.play()}>play</Button>
-      <Button onClick={() => player.pause()}>pause</Button>
-      <Button onClick={() => player.next()}>next</Button>
-      <Button onClick={() => player.mute()}>mute</Button>
-      <Button onClick={() => player.unmute()}>unmute</Button>
+      <Button onClick={() => player.prev()} icon='prev' />
+      <Button onClick={() => player.play()} icon='play' />
+      <Button onClick={() => player.pause()} icon='pause' />
+      <Button onClick={() => player.next()} icon='next' />
+      <Button onClick={() => player.mute()} icon='mute' />
+      <Button onClick={() => player.unmute()} icon='unmute' />
     </Flex>
   );
 };
