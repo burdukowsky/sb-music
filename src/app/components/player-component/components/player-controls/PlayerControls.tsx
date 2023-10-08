@@ -6,7 +6,7 @@ import { player } from 'src/app/player.ts';
 
 export const PlayerControls: FC = () => {
   return (
-    <Flex>
+    <Flex justifyContent='center'>
       <Button onClick={() => player.prev()} icon='prev' />
       <Button onClick={() => player.play()} icon='play' />
       <Button onClick={() => player.pause()} icon='pause' />
