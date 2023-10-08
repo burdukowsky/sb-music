@@ -28,7 +28,10 @@ class Player {
       return;
     }
     if (track.howl == null) {
-      track.howl = new Howl({ src: [track.file] });
+      track.howl = new Howl({
+        src: [track.file],
+        onend: () => this.next(),
+      });
     }
     if (!track.howl.playing()) {
       track.howl.play();
