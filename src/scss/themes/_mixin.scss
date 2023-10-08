@@ -1,0 +1,4 @@
+@mixin theme($bg, $text) {
+  --bg: #{$bg};
+  --text: #{$text};
+}

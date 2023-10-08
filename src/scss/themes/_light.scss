@@ -1,0 +1,8 @@
+@import "mixin";
+
+$bg: #8E24AA;
+$text: white;
+
+html {
+  @include theme($bg, $text);
+}

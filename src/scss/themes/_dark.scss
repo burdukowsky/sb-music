@@ -1,0 +1,8 @@
+@import "mixin";
+
+$bg: #212121;
+$text: white;
+
+html.dark {
+  @include theme($bg, $text);
+}
