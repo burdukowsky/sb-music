@@ -2,25 +2,30 @@ $header-height: 50px;
 
 .PlayerContainer {
   width: 100%;
-  max-width: 500px;
+  max-width: 365px;
   position: relative;
   overflow: hidden;
   background-color: var(--surface);
   border-radius: 8px;
-  padding: 5px 20px;
+  padding-bottom: 10px;
 
-  > .PlayerContainerHeader {
+  .PlayerContainerHeader {
     height: $header-height;
+    padding: 0 20px;
   }
 
-  > .PlayerContainerDrawer {
+  .PlayerContainerDrawer {
     width: 100%;
     height: calc(100% - $header-height);
     position: absolute;
+    top: $header-height;
     left: 100%;
     transition: left 200ms;
-    background-color: transparentize(black, 0.5);
+    background-color: transparentize(black, 0.1);
     overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &.PlayerContainerDrawerOpen {
       left: 0;

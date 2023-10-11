@@ -15,22 +15,25 @@ export const PlayerContainer: FCC<Props> = ({ drawer, children }) => {
 
   return (
     <div className={css.PlayerContainer}>
-      <Flex
-        justifyContent='space-between'
-        alignItems='center'
-        className={css.PlayerContainerHeader}
-      >
-        <span>SB Music</span>
-        <Button onClick={() => setDrawerOpen(!drawerOpen)}>Playlist</Button>
+      <Flex direction='column' gap='15px'>
+        <Flex
+          justifyContent='space-between'
+          alignItems='center'
+          className={css.PlayerContainerHeader}
+        >
+          <span>SB Music</span>
+          <Button onClick={() => setDrawerOpen(!drawerOpen)}>Playlist</Button>
+        </Flex>
+        <div>{children}</div>
       </Flex>
+
       <div
         className={classNames(css.PlayerContainerDrawer, {
           [css.PlayerContainerDrawerOpen as string]: drawerOpen,
         })}
       >
-        {drawer}
+        <div>{drawer}</div>
       </div>
-      {children}
     </div>
   );
 };

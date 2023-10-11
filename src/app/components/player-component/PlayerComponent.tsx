@@ -10,12 +10,14 @@ import { PlayerControls } from 'src/app/components/player-component/components/p
 export const PlayerComponent: FC = () => {
   return (
     <PlayerContainer drawer={<Playlist />}>
-      <Flex justifyContent='space-between' childrenFlex={['1', '1', '1']}>
-        <span />
-        <Cat />
-        <ThemeSwitcher />
+      <Flex direction='column' gap='20px'>
+        <Flex justifyContent='space-between' childrenFlex={['1', '1', '1']}>
+          <span />
+          <Cat />
+          <ThemeSwitcher />
+        </Flex>
+        <PlayerControls />
       </Flex>
-      <PlayerControls />
     </PlayerContainer>
   );
 };
