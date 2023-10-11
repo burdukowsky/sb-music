@@ -3,4 +3,9 @@
   height: 40px;
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: transparentize(white, .5);
+  }
 }
