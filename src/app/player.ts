@@ -1,6 +1,8 @@
 import { Howl } from 'howler';
 
 import { Track } from 'src/app/types.ts';
+import { SimpleBehaviorSubject } from 'src/app/rx/SimpleBehaviorSubject.ts';
+import { SimpleSubjectSubscription } from 'src/app/rx/SimpleSubject.ts';
 
 interface TrackWithHowl extends Track {
   howl?: Howl;
@@ -9,6 +11,7 @@ interface TrackWithHowl extends Track {
 class Player {
   private tracks: TrackWithHowl[] = [];
   private index = 0;
+  private currentTrack$ = new SimpleBehaviorSubject<Track | null>(null);
 
   setPlaylist(tracks: Track[]): void {
     this.tracks = tracks;
@@ -35,6 +38,7 @@ class Player {
     }
     if (!track.howl.playing()) {
       track.howl.play();
+      this.currentTrack$.next(track);
     }
   }
 
@@ -86,6 +90,10 @@ class Player {
 
   unmute(): void {
     Howler.volume(1);
+  }
+
+  onPlay(callback: (track: Track | null) => void): SimpleSubjectSubscription {
+    return this.currentTrack$.subscribe(callback);
   }
 }
 

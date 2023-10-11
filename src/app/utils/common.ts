@@ -9,3 +9,14 @@ export function setColorTheme(theme: Theme): void {
 export function configureInitialTheme(): void {
   setColorTheme(getLocalStorageValue(lsThemeKey, defaultTheme));
 }
+
+export function removeFromArrayByIndex(array: any[], index: number): void {
+  array.splice(index, 1);
+}
+
+export function removeFromArray<T>(array: T[], item: T): void {
+  const index = array.indexOf(item);
+  if (index > -1) {
+    removeFromArrayByIndex(array, index);
+  }
+}
