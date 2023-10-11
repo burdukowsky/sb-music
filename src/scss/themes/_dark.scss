@@ -2,7 +2,8 @@
 
 $bg: #212121;
 $text: white;
+$surface: #232c4e;
 
 html.dark {
-  @include theme($bg, $text);
+  @include theme($bg, $surface, $text);
 }

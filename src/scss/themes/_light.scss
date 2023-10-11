@@ -1,8 +1,9 @@
 @import "mixin";
 
-$bg: #1A237E;
+$bg: #616aa8;
 $text: white;
+$surface: #272424;
 
 :root {
-  @include theme($bg, $text);
+  @include theme($bg, $surface, $text);
 }

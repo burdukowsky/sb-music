@@ -1,4 +1,6 @@
-@mixin theme($bg, $text) {
+@mixin theme($bg, $surface, $text) {
   --bg: #{$bg};
   --text: #{$text};
+  --surface: #{$surface};
+  --border-color: #{lighten($surface, .1)};
 }

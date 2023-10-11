@@ -5,4 +5,6 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("/img/cat.gif");
+  border: 5px var(--border-color) ridge;
+  border-radius: 10px;
 }
