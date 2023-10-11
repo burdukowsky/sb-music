@@ -21,7 +21,7 @@ export const PlayerContainer: FCC<Props> = ({ drawer, children }) => {
           alignItems='center'
           className={css.PlayerContainerHeader}
         >
-          <span>SB Music</span>
+          <h1>SB Music</h1>
           <Button onClick={() => setDrawerOpen(!drawerOpen)}>Playlist</Button>
         </Flex>
         <div>{children}</div>
