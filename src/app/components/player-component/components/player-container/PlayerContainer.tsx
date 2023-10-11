@@ -5,6 +5,7 @@ import { FCC } from 'src/app/types.ts';
 import css from './PlayerContainer.module.scss';
 import { Button } from 'src/app/components/button/Button.tsx';
 import { Flex } from 'src/app/components/flex/Flex.tsx';
+import { AppIcon } from 'src/app/components/app-icon/AppIcon.tsx';
 
 interface Props {
   drawer: ReactNode;
@@ -21,7 +22,14 @@ export const PlayerContainer: FCC<Props> = ({ drawer, children }) => {
           alignItems='center'
           className={css.PlayerContainerHeader}
         >
-          <h1>SB Music</h1>
+          <Flex
+            as='h1'
+            gap='4px'
+            alignItems='center'
+            childrenStyle={[{ lineHeight: 0 }]}
+          >
+            <AppIcon /> Music
+          </Flex>
           <Button onClick={() => setDrawerOpen(!drawerOpen)}>Playlist</Button>
         </Flex>
         <div>{children}</div>

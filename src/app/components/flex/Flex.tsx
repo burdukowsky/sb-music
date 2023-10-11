@@ -74,7 +74,10 @@ export const Flex: FCC<Props> = ({
       (child, index) =>
         child != null && (
           <span
-            style={{ flex: childrenFlex?.[index], ...childrenStyle?.[index] }}
+            style={{
+              flex: childrenFlex?.[index],
+              ...childrenStyle?.[index],
+            }}
           >
             {child}
           </span>

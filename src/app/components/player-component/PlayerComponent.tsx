@@ -13,7 +13,7 @@ export const PlayerComponent: FC = () => {
     <PlayerContainer drawer={<Playlist />}>
       <Flex direction='column' gap='20px'>
         <CurrentTrackView />
-        <Flex justifyContent='space-between' childrenFlex={['1', '1', '1']}>
+        <Flex childrenFlex={['1', '1', '1']}>
           <span />
           <Cat />
           <ThemeSwitcher />
