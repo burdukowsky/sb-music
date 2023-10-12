@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { Flex } from 'src/app/components/flex/Flex.tsx';
 import { Button } from 'src/app/components/button/Button.tsx';
-import { player } from 'src/app/player.ts';
+import { player } from 'src/app/player/player.ts';
 
 export const PlayerControls: FC = () => {
   return (

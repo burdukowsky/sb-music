@@ -12,6 +12,7 @@ class Player {
   private tracks: TrackWithHowl[] = [];
   private index = 0;
   private currentTrack$ = new SimpleBehaviorSubject<Track | null>(null);
+  private loading$ = new SimpleBehaviorSubject<boolean>(false);
 
   setPlaylist(tracks: Track[]): void {
     this.tracks = tracks;
@@ -34,11 +35,15 @@ class Player {
       track.howl = new Howl({
         src: [track.file],
         onend: () => this.next(),
+        onload: () => this.loading$.next(false),
       });
     }
     if (!track.howl.playing()) {
       track.howl.play();
       this.currentTrack$.next(track);
+      if (track.howl.state() !== 'loaded') {
+        this.loading$.next(true);
+      }
     }
   }
 
@@ -94,6 +99,12 @@ class Player {
 
   onPlay(callback: (track: Track | null) => void): SimpleSubjectSubscription {
     return this.currentTrack$.subscribe(callback);
+  }
+
+  onLoadingStatusChange(
+    callback: (status: boolean) => void,
+  ): SimpleSubjectSubscription {
+    return this.loading$.subscribe(callback);
   }
 }
 

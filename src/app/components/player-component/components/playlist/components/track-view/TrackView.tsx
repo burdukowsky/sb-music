@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Track } from 'src/app/types.ts';
-import { player } from 'src/app/player.ts';
+import { player } from 'src/app/player/player.ts';
 import css from './TrackView.module.scss';
 
 interface Props {

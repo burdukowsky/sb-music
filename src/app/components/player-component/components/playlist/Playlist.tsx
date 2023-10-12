@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 
-import { player } from 'src/app/player.ts';
+import { player } from 'src/app/player/player.ts';
 import { Track } from 'src/app/types.ts';
 import { TrackView } from 'src/app/components/player-component/components/playlist/components/track-view/TrackView.tsx';
 import { Flex } from 'src/app/components/flex/Flex.tsx';

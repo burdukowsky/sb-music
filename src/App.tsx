@@ -2,7 +2,7 @@ import { FC, useCallback, useState } from 'react';
 
 import { PlayerComponent } from 'src/app/components/player-component/PlayerComponent.tsx';
 import { Track } from 'src/app/types.ts';
-import { player } from 'src/app/player.ts';
+import { player } from 'src/app/player/player.ts';
 import { Button } from 'src/app/components/button/Button.tsx';
 import { useOnInit } from 'src/app/hooks/useOnInit.ts';
 
