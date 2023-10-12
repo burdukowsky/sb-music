@@ -6,7 +6,11 @@ import { TrackView } from 'src/app/components/player-component/components/playli
 import { Flex } from 'src/app/components/flex/Flex.tsx';
 import { useTrackLoading } from 'src/app/player/useTrackLoading.ts';
 
-export const Playlist: FC = () => {
+interface Props {
+  onTrackClick?: () => void;
+}
+
+export const Playlist: FC<Props> = ({ onTrackClick }) => {
   const [tracks, setTracks] = useState<Track[]>([]);
 
   useEffect(() => {
@@ -19,7 +23,13 @@ export const Playlist: FC = () => {
     <Flex direction='column' alignItems='center'>
       {tracks.map((t, index) => {
         return (
-          <TrackView key={index} track={t} index={index} loading={loading} />
+          <TrackView
+            key={index}
+            track={t}
+            index={index}
+            loading={loading}
+            onClick={onTrackClick}
+          />
         );
       })}
     </Flex>

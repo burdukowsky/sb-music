@@ -10,7 +10,9 @@ import { CurrentTrackView } from 'src/app/components/player-component/components
 
 export const PlayerComponent: FC = () => {
   return (
-    <PlayerContainer drawer={<Playlist />}>
+    <PlayerContainer
+      drawer={closeDrawer => <Playlist onTrackClick={closeDrawer} />}
+    >
       <Flex direction='column' gap='20px'>
         <CurrentTrackView />
         <Flex childrenFlex={['1', '1', '1']}>

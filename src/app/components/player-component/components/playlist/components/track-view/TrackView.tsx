@@ -9,21 +9,28 @@ interface Props {
   track: Track;
   loading?: boolean;
   index: number;
+  onClick?: () => void;
 }
 
-export const TrackView: FC<Props> = ({ track, loading = false, index }) => {
-  const onClick = useCallback(() => {
+export const TrackView: FC<Props> = ({
+  track,
+  loading = false,
+  index,
+  onClick,
+}) => {
+  const handleClick = useCallback(() => {
     if (!loading) {
       player.playTrack(index);
+      onClick?.();
     }
-  }, [index, loading]);
+  }, [index, loading, onClick]);
 
   return (
     <div
       className={classNames(css.TrackView, {
         [css.TrackViewLoading as string]: loading,
       })}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {track.name}
     </div>

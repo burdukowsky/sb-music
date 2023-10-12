@@ -8,7 +8,7 @@ import { Flex } from 'src/app/components/flex/Flex.tsx';
 import { AppIcon } from 'src/app/components/app-icon/AppIcon.tsx';
 
 interface Props {
-  drawer: ReactNode;
+  drawer: (closeDrawer: () => void) => ReactNode;
 }
 
 export const PlayerContainer: FCC<Props> = ({ drawer, children }) => {
@@ -40,7 +40,7 @@ export const PlayerContainer: FCC<Props> = ({ drawer, children }) => {
           [css.PlayerContainerDrawerOpen as string]: drawerOpen,
         })}
       >
-        <div>{drawer}</div>
+        <div>{drawer(() => setDrawerOpen(false))}</div>
       </div>
     </div>
   );
