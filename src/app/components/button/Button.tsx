@@ -9,10 +9,12 @@ import { FCC } from 'src/app/types.ts';
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: IconType;
   iconSize?: Property.Width;
+  loading?: boolean;
 }
 
 export const Button: FCC<Props> = ({
   type = 'button',
+  loading = false,
   className,
   icon,
   iconSize = '40px',
@@ -23,9 +25,10 @@ export const Button: FCC<Props> = ({
     return (
       classNames(styles.Button, {
         [styles.ButtonIcon as string]: icon != null,
+        [styles.ButtonLoading as string]: loading,
       }) + ` ${className ?? ''}`
     );
-  }, [className, icon]);
+  }, [className, icon, loading]);
 
   const style = useMemo<CSSProperties | undefined>(() => {
     if (icon == null) {

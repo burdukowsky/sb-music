@@ -16,6 +16,12 @@
     background-color: transparentize(black, .9);
   }
 
+  &.ButtonLoading {
+    cursor: wait;
+    opacity: .4;
+    background-color: transparent;
+  }
+
   &.ButtonIcon {
     border-radius: 50%;
     padding: 0;

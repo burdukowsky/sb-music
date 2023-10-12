@@ -1,18 +1,34 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 
 import { Flex } from 'src/app/components/flex/Flex.tsx';
 import { Button } from 'src/app/components/button/Button.tsx';
 import { player } from 'src/app/player/player.ts';
+import { useTrackLoading } from 'src/app/player/useTrackLoading.ts';
+
+const actions = ['prev', 'play', 'pause', 'next'] as const;
 
 export const PlayerControls: FC = () => {
+  const loading = useTrackLoading();
+
+  const onClick = useCallback(
+    (action: (typeof actions)[number]) => {
+      if (!loading) {
+        player[action]();
+      }
+    },
+    [loading],
+  );
+
   return (
     <Flex justifyContent='center'>
-      <Button onClick={() => player.prev()} icon='prev' />
-      <Button onClick={() => player.play()} icon='play' />
-      <Button onClick={() => player.pause()} icon='pause' />
-      <Button onClick={() => player.next()} icon='next' />
-      <Button onClick={() => player.mute()} icon='mute' />
-      <Button onClick={() => player.unmute()} icon='unmute' />
+      {actions.map(action => (
+        <Button
+          key={action}
+          onClick={() => onClick(action)}
+          icon={action}
+          loading={loading}
+        />
+      ))}
     </Flex>
   );
 };
