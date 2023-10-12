@@ -9,4 +9,10 @@
   &:hover {
     background-color: transparentize(white, .5);
   }
+
+  &.TrackViewLoading {
+    cursor: wait;
+    background-color: transparent;
+    opacity: .3;
+  }
 }
