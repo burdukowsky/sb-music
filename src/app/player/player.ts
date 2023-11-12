@@ -13,6 +13,7 @@ class Player {
   private index = 0;
   private currentTrack$ = new SimpleBehaviorSubject<Track | null>(null);
   private loading$ = new SimpleBehaviorSubject<boolean>(false);
+  private repeat = false;
 
   setPlaylist(tracks: Track[]): void {
     this.tracks = tracks;
@@ -26,6 +27,14 @@ class Player {
     return this.tracks[this.index];
   }
 
+  getRepeatStatus(): boolean {
+    return this.repeat;
+  }
+
+  setRepeatStatus(val: boolean) {
+    this.repeat = val;
+  }
+
   play(): void {
     const track = this.getCurrentTrack();
     if (track == null) {
@@ -34,7 +43,9 @@ class Player {
     if (track.howl == null) {
       track.howl = new Howl({
         src: [track.file],
-        onend: () => this.next(),
+        onend: () => {
+          this.repeat ? this.play() : this.next();
+        },
         onload: () => this.loading$.next(false),
       });
     }

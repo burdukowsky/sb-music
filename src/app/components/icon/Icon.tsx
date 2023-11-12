@@ -9,6 +9,8 @@ import Play from 'src/icons/play.svg?react';
 import Pause from 'src/icons/pause.svg?react';
 import Mute from 'src/icons/mute.svg?react';
 import Unmute from 'src/icons/unmute.svg?react';
+import Repeat from 'src/icons/repeat.svg?react';
+import RepeatOne from 'src/icons/repeat-one.svg?react';
 
 export type IconType =
   | 'darkMode'
@@ -18,7 +20,9 @@ export type IconType =
   | 'play'
   | 'pause'
   | 'mute'
-  | 'unmute';
+  | 'unmute'
+  | 'repeat'
+  | 'repeatOne';
 
 const icons: Record<IconType, any> = {
   darkMode: DarkMode,
@@ -29,6 +33,8 @@ const icons: Record<IconType, any> = {
   pause: Pause,
   mute: Mute,
   unmute: Unmute,
+  repeat: Repeat,
+  repeatOne: RepeatOne,
 };
 
 interface Props {
