@@ -13,6 +13,7 @@ class Player {
   private index = 0;
   private currentTrack$ = new SimpleBehaviorSubject<Track | null>(null);
   private loading$ = new SimpleBehaviorSubject<boolean>(false);
+  private playing$ = new SimpleBehaviorSubject<boolean>(false);
   private repeat = false;
 
   setPlaylist(tracks: Track[]): void {
@@ -47,6 +48,8 @@ class Player {
           this.repeat ? this.play() : this.next();
         },
         onload: () => this.loading$.next(false),
+        onplay: () => this.playing$.next(true),
+        onpause: () => this.playing$.next(false),
       });
     }
     if (!track.howl.playing()) {
@@ -116,6 +119,12 @@ class Player {
     callback: (status: boolean) => void,
   ): SimpleSubjectSubscription {
     return this.loading$.subscribe(callback);
+  }
+
+  onPlayingStatusChange(
+    callback: (status: boolean) => void,
+  ): SimpleSubjectSubscription {
+    return this.playing$.subscribe(callback);
   }
 }
 
